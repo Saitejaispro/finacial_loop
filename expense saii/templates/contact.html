@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Smart Expense Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>💰 Expense Tracker</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you</p>
+    </header>
+
+    <main class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto 2rem auto;">
+            <h2>Get in Touch</h2>
+            <p>Have questions or feedback? Send us a message and we'll get back to you soon!</p>
+            
+            <form>
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="What is this about?" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Contact Information</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:support@expensetracker.com">support@expensetracker.com</a></p>
+                </div>
+                <div>
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                </div>
+                <div>
+                    <h3>📍 Location</h3>
+                    <p>Hyderabad, Telangana, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Follow Us</h2>
+            <p>Connect with us on social media for updates and tips:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 0.5rem 0;"><a href="#" style="color: var(--primary);">Facebook</a></li>
+                <li style="margin: 0.5rem 0;"><a href="#" style="color: var(--primary);">Twitter</a></li>
+                <li style="margin: 0.5rem 0;"><a href="#" style="color: var(--primary);">Instagram</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Expense Tracker. All rights reserved.</p>
+    </footer>
+</body>
+</html>

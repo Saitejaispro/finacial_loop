@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .stat-card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary); }
+        .stat-card h3 { font-size: 0.9rem; color: #666; }
+        .stat-card p { font-size: 2rem; font-weight: bold; color: var(--text); margin: 0.5rem 0 0 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; }
+        .tag { padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
+        .tag-admin { background: #e0e7ff; color: #3730a3; }
+        .tag-user { background: #f3f4f6; color: #374151; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>🔒 Admin Panel</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">My Dashboard</a></li>
+                <li><a href="/logout" class="btn btn-logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="margin-top: 2rem;">
+        <h2>Overview</h2>
+        <div class="admin-grid">
+            <div class="stat-card">
+                <h3>Total Users</h3>
+                <p>{{ total_users }}</p>
+            </div>
+            <div class="stat-card" style="border-color: var(--secondary);">
+                <h3>Total Transactions</h3>
+                <p>{{ total_expenses }}</p>
+            </div>
+            <div class="stat-card" style="border-color: var(--accent);">
+                <h3>Traffic (Today)</h3>
+                <p>{% if traffic %}{{ traffic[0][2] }}{% else %}0{% endif %} Views</p>
+            </div>
+        </div>
+
+        <h2>Recent Traffic</h2>
+        <div class="card" style="padding: 0;">
+            <table>
+                <thead><tr><th>Date</th><th>Page Views</th></tr></thead>
+                <tbody>
+                    {% for row in traffic %}
+                    <tr><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>
+                    {% else %}
+                    <tr><td colspan="2">No traffic data.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Registered Users</h2>
+        <div class="card" style="padding: 0;">
+            <table>
+                <thead><tr><th>ID</th><th>Username</th><th>Join Date</th><th>Role</th></tr></thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>#{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>
+                            {% if user[3] == 1 %}<span class="tag tag-admin">Admin</span>
+                            {% else %}<span class="tag tag-user">User</span>{% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
